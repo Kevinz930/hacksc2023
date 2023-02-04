@@ -59,7 +59,7 @@ app.post('/auth', function(request, response) {
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
-	// If the user is loggedin
+	// If the user is logged in
 	if (request.session.loggedin) {
 		// Output username
 		response.send('Welcome back, ' + request.session.username + '!');

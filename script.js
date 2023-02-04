@@ -33,7 +33,7 @@ let conmection = mysql.createConnection({
   password: "password",
   database: "mydb"
 });
-let queryString = `SELECT name FROM player`;
+let queryString = `SELECT name FROM players`;
 // queryDatabase(queryString);
 
 function queryDatabase(queryString) {
