@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
 	user     : 'root',
 	password : 'HamamaSonder@359',
 	database : 'nodelogin',
-  port: '3306'
+  	port: '3306'
 });
 
 const app = express();
