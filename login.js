@@ -67,8 +67,14 @@ app.get('/home', function(request, response) {
 		// Not logged in
 		response.send('Please login to view this page!');
 	}
+	
+
+
 	response.end();
 });
+
+
+
 
 console.log("Go to http://localhost:3000");
 app.listen(3000);

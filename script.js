@@ -25,7 +25,6 @@ let playerNames = await getCurrentMatch();
 console.log(playerNames);
 
 
-
 let mysql = require('mysql')
 let conmection = mysql.createConnection({
   host: "localhost",
