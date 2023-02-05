@@ -144,7 +144,7 @@ app.get('/GameName', async function(request, response) {
 		console.log(message[player]);
 	}
 	let style = "<style> @font-face { font-family: Panton; src: url('/Panton/PantonDemo-Light.otf')format('opentype');} * {font-family:Panton;} p {font-size:40px;} body {background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));} </style>";
-	playerString = "<html><body><ul>" + style + playerString + "</ul></body></html>";
+	playerString = "<html>" + style + "<body><p>test</p><ul>" + playerString + "</ul></body></html>";
 	response.set('Content-Type', 'text/html');
 	response.send(playerString);
 
