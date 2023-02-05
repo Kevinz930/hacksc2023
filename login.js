@@ -138,12 +138,13 @@ app.post('/gamerTag', function(request, response) {
 app.get('/GameName', async function(request, response) {
 	const result = await queryDatabase();
 	const message = compareDB(result);
-	const playerString = '';
+	let playerString = '';
 	for (let player in message) {
-		playerString += `<li>${player}</li>`;
+		playerString = playerString.concat("<li>" + message[player] + "</li>");
+		console.log(message[player]);
 	}
 	response.set('Content-Type', 'text/html');
-	response.send(`<html><body><ul>${playerString}</ul></body></html>`);
+	response.send("<html><body><ul>" + playerString + "</ul></body></html>");
 
   	// response.send("<html><body><h1>" + stringVariable + "</h1></body></html>");
 	// response.send("<html><body><div>" + stringVariable1 + "<p style='color:red'>" + message + "</h2>" + stringVariable2 + "</div></body></html>");
