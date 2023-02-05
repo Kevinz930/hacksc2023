@@ -143,8 +143,10 @@ app.get('/GameName', async function(request, response) {
 		playerString = playerString.concat("<li>" + message[player] + "</li>");
 		console.log(message[player]);
 	}
+	let style = "<style> @font-face { font-family: Panton; src: url('/Panton/PantonDemo-Light.otf')format('opentype');} * {font-family:Panton;} p {font-size:40px;} body {background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));} </style>";
+	playerString = "<html><body><ul>" + style + playerString + "</ul></body></html>";
 	response.set('Content-Type', 'text/html');
-	response.send("<html><body><ul>" + playerString + "</ul></body></html>");
+	response.send(playerString);
 
   	// response.send("<html><body><h1>" + stringVariable + "</h1></body></html>");
 	// response.send("<html><body><div>" + stringVariable1 + "<p style='color:red'>" + message + "</h2>" + stringVariable2 + "</div></body></html>");
