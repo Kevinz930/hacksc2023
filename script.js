@@ -6,23 +6,55 @@ import * as https from "https";
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
 });
-
 async function getCurrentMatch() {
   const URL = `https://127.0.0.1:2999/liveclientdata/playerlist`;
-  let response = await axios.get(URL, {httpsAgent});
-  return getPlayerNames(response.data);
-}
-
-function getPlayerNames(data) {
-  let playerNames = [];
-  for (let i in data) {
-    playerNames.push(data[i]['summonerName']);
+  try {
+    let response = await axios.get(URL, {httpsAgent});
+    let players = getPlayers(response.data);
+  } catch (err) {
+    console.error("Error: No live game found.");
+    return "Error";
   }
-  return playerNames;
+  return players
+
 }
 
-let playerNames = await getCurrentMatch();
-console.log(playerNames);
+
+
+function getPlayers(data) {
+  console.log(data);
+  let players = 
+  {
+    'team1': {},
+    'team2': {}
+  }
+  for (let i in data) {
+    playerName = data[i]['summonerName'];
+    if (data[i]['team'] == 'ORDER') {
+      players['team1'][playerName] = false;
+    } else {
+      players['team2'][playerName] = false;
+    }
+  }
+  // }
+  // for (let i in data) {
+  //   players.push(data[i][['summonerName'], ['team']]);
+  // }
+  return players;
+}
+
+
+
+let playerList = await getCurrentMatch();
+console.log(playerList);
+
+let table1 = document.getElementById('table1');
+let thead1 = document.getElementById('thead1');
+for (let player in playerList['team1']) {
+  let row = table1.insertRow();
+  let cell = row.insertCell();
+  cell.appendChild(player.constructor.name);
+}
 
 
 // let mysql = require('mysql')
