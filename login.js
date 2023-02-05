@@ -138,19 +138,67 @@ app.post('/gamerTag', function(request, response) {
 app.get('/GameName', async function(request, response) {
 	const result = await queryDatabase();
 	const message = compareDB(result);
-	let playerString = '';
+	let playerString = '<h1>Angel Shot Members in Your Match:</h1>';
 	for (let player in message) {
 		playerString = playerString.concat("<li>" + message[player] + "</li>");
 		console.log(message[player]);
 	}
-	let style = "<style> @font-face { font-family: Panton; src: url('/Panton/PantonDemo-Light.otf')format('opentype');} * {font-family:Panton;} p {font-size:40px;} body {background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));} </style>";
-	playerString = "<html>" + style + "<body><p>test</p><ul>" + playerString + "</ul></body></html>";
+	let style = `<style> 
+	@font-face 
+	{ 
+		font-family: Panton; 
+		src: url('/Panton/PantonDemo-Light.otf')format('opentype');
+	} 
+	* {
+		font-family: Panton;
+	} 
+	body {
+		height: 100vh; 
+		background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));
+		box-sizing: border-box;
+		padding: 100px 300px 100px 300px;
+		position: relative;
+	} 
+	body:after {
+		content: "";
+		background: url('zoom.png');
+		background-size: cover;
+		opacity: .3;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		position: absolute;
+		z-index: -1;   
+	}
+	div {
+		background-color: rgba(0, 0, 0, 0.4);
+		border-radius: 25px;
+		height: 100%;
+		padding: 75px;
+		box-sizing: border-box;
+	}
+	h1 {
+		color: rgb(255, 255, 255);
+		opacity: 70%;
+		letter-spacing: 10px;
+		font-size: 60px;
+		text-align: center;
+	}
+	p {
+		font-size:40px;
+	} 
+	ul {
+		list-style: none;
+	}
+	li {
+		color: rgb(255, 255, 255);
+		font-size: 20px;
+	}
+	</style>`;
+	playerString = "<html>" + style + "<body><div><ul>" + playerString + "</ul></div></body></html>";
 	response.set('Content-Type', 'text/html');
 	response.send(playerString);
-
-  	// response.send("<html><body><h1>" + stringVariable + "</h1></body></html>");
-	// response.send("<html><body><div>" + stringVariable1 + "<p style='color:red'>" + message + "</h2>" + stringVariable2 + "</div></body></html>");
-
 });
 
 console.log("Go to http://localhost:3000");
