@@ -39,7 +39,7 @@
 
 .game-select button {
   /* background-image: url('img\background\league_of_legends.webp'); */
-  background: url('../img/background/league_of_legends.webp');
+  background: url('/league_of_legends.webp');
   background-position: center;
   background-size: cover;
   color: rgb(216, 216, 216);
