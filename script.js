@@ -32,19 +32,19 @@ console.log(playerNames);
 //   password: "password",
 //   database: "mydb"
 // });
-// let queryString = `SELECT name FROM players`;
-// queryDatabase(queryString);
+let queryString = `SELECT name FROM players`;
+queryDatabase(queryString);
 
-// function queryDatabase(queryString) {
-//   return connection.connect(function(err) {
-//     if (err) throw err;
-//     return connection.query(queryString, (error, result, fields) => {
-//       if (err) throw err;
-//       // console.log(result);
+function queryDatabase(queryString) {
+  return connection.connect(function(err) {
+    if (err) throw err;
+    return connection.query(queryString, (error, result, fields) => {
+      if (err) throw err;
+      // console.log(result);
       
-//       // Compare players in database with players from current match
-//       let dbNames = result.map(player => player.name);
-//       return registeredPlayers = playerNames.filter(player => dbNames.includes(player));
-//     });
-//   });
-// }
+      // Compare players in database with players from current match
+      let dbNames = result.map(player => player.name);
+      return registeredPlayers = playerNames.filter(player => dbNames.includes(player));
+    });
+  });
+}
