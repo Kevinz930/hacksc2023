@@ -118,11 +118,15 @@ app.post('/check', function(request, response) {
 app.get('/GameName', async function(request, response) {
 	const result = await queryDatabase();
 	const message = compareDB(result);
-	var stringVariable1 = "Angel Shot member in your lobby: ";
-	var stringVariable2 = "Make sure to say hello!"
-  	response.set('Content-Type', 'text/html');
+	const playerString = '';
+	for (let player in message) {
+		playerString += `<li>${player}</li>`;
+	}
+	response.set('Content-Type', 'text/html');
+	response.send(`<html><body><ul>${playerString}</ul></body></html>`);
+
   	// response.send("<html><body><h1>" + stringVariable + "</h1></body></html>");
-	response.send("<html><body><p>" + stringVariable1 + "<h1 style='color:red'>" + message + "</h2>" + stringVariable2 + "</p></body></html>");
+	// response.send("<html><body><div>" + stringVariable1 + "<p style='color:red'>" + message + "</h2>" + stringVariable2 + "</div></body></html>");
 
 });
 
