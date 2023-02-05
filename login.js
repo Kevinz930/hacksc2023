@@ -85,9 +85,29 @@ app.get('/home', function(request, response) {
 });
 
 app.post('/check', function(request, response) {
+	response.redirect('/playerName');
+	response.end();
+});
+
+app.get('/playerName', function(request, response) {
+	// // If the user is logged in
+	// if (request.session.loggedin) {
+	// 	// Output username
+	// 	response.send('Welcome back, ' + request.session.username + '!');
+	// } else {
+	// 	// Not logged in
+	// 	response.send('Please login to view this page!');
+	// }
+	// response.end();
+	response.sendFile(path.join(__dirname + '/playername.html'));
+});
+
+app.post('/gamerTag', function(request, response) {
 	response.redirect('/GameName');
 	response.end();
 });
+
+
 
 // app.post('/GameName', async function(request, response) {
 // 	const result = await queryDatabase();
