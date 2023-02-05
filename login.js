@@ -5,6 +5,7 @@ import express from 'express'
 import session from 'express-session'
 import path from 'path'
 import { fileURLToPath } from 'url';
+import { table } from 'console';
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -88,11 +89,17 @@ app.post('/check', function(request, response) {
 	response.end();
 });
 
+// app.post('/GameName', async function(request, response) {
+// 	const result = await queryDatabase();
+// 	response.send("Angel Shot Players in lobby: " + compareDB(result));
+// 	response.end();
+// });
+
 app.get('/GameName', async function(request, response) {
 	response.sendFile(path.join(__dirname + '/match.html'));
 	const result = await queryDatabase();
 	// const table = await compareDB();
-	response.send(compareDB(result));
+	response.send("Angel Shot Players in lobby: " + compareDB(result));
 	// console.log(compareDB(result));
 	response.end()
 });
@@ -143,6 +150,7 @@ const httpsAgent = new https.Agent({
   promise.then((value) => {
 	// console.log(value);
 	compareDB(value);
+	// return table;
   });
   
   function queryDatabase(queryString, playerList2) {
@@ -199,8 +207,8 @@ function compareDB (db_result) {
 			team2.push(player);
 		}
 	}
-	// console.log(team1);
-	// console.log(team2);
+	console.log(team1);
+	console.log(team2);
 	let team_list = team1.concat(team2);
 	return team_list;
 

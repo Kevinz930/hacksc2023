@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='static/match.css'>
-  <script src='script.js'></script>
-  <title>Angel Shot</title>
-</head>
-<body>
-  <form action="/GameName" method="get">
-  <table class='table1'>
-    <thead id='thead1'>
-      <th>Team 1</th>
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    <body>
+        <h1>Login Page</h1>
+        <form action="/auth" method="post">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
 
-    </thead>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <h1>Home Page</h1>
+        <form action="/check" method="post">
+            <input type="submit" value="Enter Game Lobby">
+        </form>
+    </body>
+</html>
 
-  </table>
-
-  <table class='table2'>
-    <thead>
-      <th>Team 2</th>
-    </thead>
-  </table>
-  </form>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Match Page</title>
+    </head>
+    <body>
+        <h1>Match Page</h1>
+        <div id="playerList"></div>
+    </body>
 </html>
