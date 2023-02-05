@@ -1,3 +1,6 @@
+// import axios from 'axios'
+// import * as https from "https";
+
 const mysql = require('mysql2');
 const express = require('express');
 const session = require('express-session');
@@ -67,12 +70,20 @@ app.get('/home', function(request, response) {
 	// 	// Not logged in
 	// 	response.send('Please login to view this page!');
 	// }
-	response.sendFile(path.join(__dirname + '/game_select.html'));
-
-
 	// response.end();
+	response.sendFile(path.join(__dirname + '/game_select.html'));
 });
 
+app.post('/check', function(request, response) {
+	response.redirect('/GameName');
+	response.end();
+});
+
+app.get('/GameName', function(request, response) {
+	response.sendFile(path.join(__dirname + '/login.html'));
+});
 
 console.log("Go to http://localhost:3000");
+
+// run on localhost
 app.listen(3000);
