@@ -1,5 +1,7 @@
 import axios from 'axios'
 import * as https from "https";
+import jsdom from "jsdom";
+const { JSDOM } = jsdom;
 
 // const API_KEY = 'RGAPI-2f646f6b-5115-41e9-a96d-880fe7eaccb2';
 
@@ -8,20 +10,13 @@ const httpsAgent = new https.Agent({
 });
 async function getCurrentMatch() {
   const URL = `https://127.0.0.1:2999/liveclientdata/playerlist`;
-  try {
-    let response = await axios.get(URL, {httpsAgent});
-    let players = getPlayers(response.data);
-  } catch (err) {
-    console.error("Error: No live game found.");
-    return "Error";
-  }
+  let response = await axios.get(URL, {httpsAgent});
+  let players = getPlayers(response.data);
   return players
 
 }
 
-
-
-function getPlayers(data) {
+function getPlayers(data) {  
   console.log(data);
   let players = 
   {
@@ -29,16 +24,16 @@ function getPlayers(data) {
     'team2': {}
   }
   for (let i in data) {
-    playerName = data[i]['summonerName'];
+    let playerName = data[i]['summonerName'];
     if (data[i]['team'] == 'ORDER') {
       players['team1'][playerName] = false;
     } else {
       players['team2'][playerName] = false;
     }
   }
-  // }
+  // let teams = [];
   // for (let i in data) {
-  //   players.push(data[i][['summonerName'], ['team']]);
+  //   teams.push(data[i][['summonerName'], ['team']]);
   // }
   return players;
 }
@@ -48,13 +43,13 @@ function getPlayers(data) {
 let playerList = await getCurrentMatch();
 console.log(playerList);
 
-let table1 = document.getElementById('table1');
-let thead1 = document.getElementById('thead1');
-for (let player in playerList['team1']) {
-  let row = table1.insertRow();
-  let cell = row.insertCell();
-  cell.appendChild(player.constructor.name);
-}
+// let table1 = document.getElementById('table1');
+// let thead1 = document.getElementById('thead1');
+// for (let player in playerList['team1']) {
+//   let row = table1.insertRow();
+//   let cell = row.insertCell();
+//   cell.appendChild(player.constructor.name);
+// }
 
 
 // let mysql = require('mysql')
@@ -64,19 +59,19 @@ for (let player in playerList['team1']) {
 //   password: "password",
 //   database: "mydb"
 // });
-let queryString = `SELECT name FROM players`;
-queryDatabase(queryString);
+// let queryString = `SELECT name FROM players`;
+// queryDatabase(queryString);
 
-function queryDatabase(queryString) {
-  return connection.connect(function(err) {
-    if (err) throw err;
-    return connection.query(queryString, (error, result, fields) => {
-      if (err) throw err;
-      // console.log(result);
+// function queryDatabase(queryString) {
+//   return connection.connect(function(err) {
+//     if (err) throw err;
+//     return connection.query(queryString, (error, result, fields) => {
+//       if (err) throw err;
+//       // console.log(result);
       
-      // Compare players in database with players from current match
-      let dbNames = result.map(player => player.name);
-      return registeredPlayers = playerNames.filter(player => dbNames.includes(player));
-    });
-  });
-}
+//       // Compare players in database with players from current match
+//       let dbNames = result.map(player => player.name);
+//       return registeredPlayers = playerNames.filter(player => dbNames.includes(player));
+//     });
+//   });
+// }
