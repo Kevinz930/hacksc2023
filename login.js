@@ -1,10 +1,19 @@
-// import axios from 'axios'
-// import * as https from "https";
+import axios from 'axios'
+import * as https from "https";
+import mysql from'mysql2'
+import express from 'express'
+import session from 'express-session'
+import path from 'path'
+import { fileURLToPath } from 'url';
 
-const mysql = require('mysql2');
-const express = require('express');
-const session = require('express-session');
-const path = require('path');
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+// const mysql = require('mysql2');
+// const express = require('express');
+// const session = require('express-session');
+// const path = require('path');
 
 const connection = mysql.createConnection({
 	host     : 'localhost',

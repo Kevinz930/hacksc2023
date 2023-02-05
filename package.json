@@ -1,5 +1,5 @@
 {
-  "type": "commonjs",
+  "type": "module",
   "name": "hacksc2023",
   "version": "0.1.0",
   "private": true,
