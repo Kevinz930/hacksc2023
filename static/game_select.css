@@ -38,7 +38,8 @@
 }
 
 .game-select button {
-  background-image: url('https://static.wikia.nocookie.net/leagueoflegends/images/d/d3/Summoners_Rift_Summoner_Platforms.jpg/revision/latest?cb=20140624075315');
+  /* background-image: url('img\background\league_of_legends.webp'); */
+  background: url('../img/background/league_of_legends.webp');
   background-position: center;
   background-size: cover;
   color: rgb(216, 216, 216);
