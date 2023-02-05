@@ -23,12 +23,18 @@ header {
 }
 
 .card {
-  border: 1px solid black;
+  border: none;
   /* width: 300px; */
   height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 15px;
+}
+
+.logo {
+  height: 40%;
+  width: 80%;
 }
 
 button {
@@ -42,5 +48,5 @@ button {
 }
 
 button:hover {
-  background-color: rgb(101, 101, 101);
+  opacity: 75%;
 }
