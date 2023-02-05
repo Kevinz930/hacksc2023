@@ -1,7 +1,7 @@
 import axios from 'axios'
 import * as https from "https";
 import mysql from'mysql2'
-import express from 'express'
+import express, { text } from 'express'
 import session from 'express-session'
 import path from 'path'
 import { fileURLToPath } from 'url';
@@ -95,13 +95,35 @@ app.post('/check', function(request, response) {
 // 	response.end();
 // });
 
+// app.get('/GameName', async function(request, response) {
+// 	response.sendFile(path.join(__dirname + '/match.html'));
+// 	const result = await queryDatabase();
+// 	// const table = await compareDB();
+// 	response.send("Angel Shot Players in lobby: " + compareDB(result));
+// 	// console.log(compareDB(result));
+// 	response.end()
+// });
+
+// app.get('/GameName', function(request, response) {
+// 	// response.sendFile(path.join(__dirname + '/match.html'));
+// });
+
+// app.post('/GameName', async function(request,response){
+// 	const result = await queryDatabase();
+// 	const message = compareDB(result);
+// 	response.send({body:message});
+// 	response.end();
+// });
+
 app.get('/GameName', async function(request, response) {
-	response.sendFile(path.join(__dirname + '/match.html'));
 	const result = await queryDatabase();
-	// const table = await compareDB();
-	response.send("Angel Shot Players in lobby: " + compareDB(result));
-	// console.log(compareDB(result));
-	response.end()
+	const message = compareDB(result);
+	var stringVariable1 = "Angel Shot member in your lobby: ";
+	var stringVariable2 = "Make sure to say hello!"
+  	response.set('Content-Type', 'text/html');
+  	// response.send("<html><body><h1>" + stringVariable + "</h1></body></html>");
+	response.send("<html><body><p>" + stringVariable1 + "<h1 style='color:red'>" + message + "</h2>" + stringVariable2 + "</p></body></html>");
+
 });
 
 console.log("Go to http://localhost:3000");
@@ -207,8 +229,6 @@ function compareDB (db_result) {
 			team2.push(player);
 		}
 	}
-	console.log(team1);
-	console.log(team2);
 	let team_list = team1.concat(team2);
 	return team_list;
 
