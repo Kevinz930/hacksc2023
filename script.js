@@ -1,7 +1,6 @@
 import axios from 'axios'
 import * as https from "https";
-import jsdom from "jsdom";
-const { JSDOM } = jsdom;
+
 
 // const API_KEY = 'RGAPI-2f646f6b-5115-41e9-a96d-880fe7eaccb2';
 

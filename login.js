@@ -88,8 +88,13 @@ app.post('/check', function(request, response) {
 	response.end();
 });
 
-app.get('/GameName', function(request, response) {
-	response.sendFile(path.join(__dirname + '/login.html'));
+app.get('/GameName', async function(request, response) {
+	response.sendFile(path.join(__dirname + '/match.html'));
+	const result = await queryDatabase();
+	// const table = await compareDB();
+	response.send(compareDB(result));
+	// console.log(compareDB(result));
+	response.end()
 });
 
 console.log("Go to http://localhost:3000");
@@ -98,51 +103,108 @@ console.log("Go to http://localhost:3000");
 // const API_KEY = 'RGAPI-2f646f6b-5115-41e9-a96d-880fe7eaccb2';
 
 const httpsAgent = new https.Agent({
-  rejectUnauthorized: false,
-});
-
-async function getCurrentMatch() {
-  const URL = `https://127.0.0.1:2999/liveclientdata/playerlist`;
-  let response = await axios.get(URL, {httpsAgent});
-  return getPlayerNames(response.data);
-}
-
-function getPlayerNames(data) {
-  let playerNames = [];
-  for (let i in data) {
-    playerNames.push(data[i]['summonerName']);
-  }
-  return playerNames;
-}
-
-let playerNames = await getCurrentMatch();
-// console.log(playerNames);
-
-
-// let mysql = require('mysql')
-// let conmection = mysql.createConnection({
-//   host: "localhost",
-//   user: "username",
-//   password: "password",
-//   database: "mydb"
-// });
-let queryString = `SELECT name FROM players`;
-queryDatabase(queryString);
-
-function queryDatabase(queryString) {
-  return connection.connect(function(err) {
-    if (err) throw err;
-    return connection.query(queryString, (error, result, fields) => {
-      if (err) throw err;
-      // console.log(result);
-      
-      // Compare players in database with players from current match
-      let dbNames = result.map(player => player.name);
-      return registeredPlayers = playerNames.filter(player => dbNames.includes(player));
-    });
+	rejectUnauthorized: false,
   });
+  async function getCurrentMatch() {
+	const URL = `https://127.0.0.1:2999/liveclientdata/playerlist`;
+	let response = await axios.get(URL, {httpsAgent});
+	let players = getPlayers(response.data);
+	return players
+  
+  }
+  
+  function getPlayers(data) {  
+	// console.log(data);
+	let players = 
+	{
+	  'team1': {},
+	  'team2': {}
+	}
+	for (let i in data) {
+	  let playerName = data[i]['summonerName'];
+	  if (data[i]['team'] == 'ORDER') {
+		players['team1'][playerName] = false;
+	  } else {
+		players['team2'][playerName] = false;
+	  }
+	}
+	// let teams = [];
+	// for (let i in data) {
+	//   teams.push(data[i][['summonerName'], ['team']]);
+	// }
+	return players;
+  }
+  
+  
+  let playerList = await getCurrentMatch();
+//   console.log(playerList);
+  let queryString = `SELECT playerName FROM players`;
+  const promise = queryDatabase(queryString);
+  promise.then((value) => {
+	// console.log(value);
+	compareDB(value);
+  });
+  
+  function queryDatabase(queryString, playerList2) {
+	let sql = 'SELECT playerName from players;';
+  	return new Promise((resolve, reject) => {
+    	connection.query(sql, (err, result) => {
+      		if (err) {
+        		reject(err);
+      		}	
+			else {
+				resolve(result);
+			}
+		});
+	});
 }
 
+function compareDB (db_result) {
+
+	// // Compare players in database with players from current match
+	// let dbNames = db_result.map(player => player.name);
+	// console.log(dbNames);
+	// // for (let team in playerList2) {
+	// // 	for (let player in team) {
+	// // 		if (dbNames.includes(player.constructor.names)) {
+	// // 			team[player] = true;
+	// // 		}
+	// // 	}
+	// // }
+	// // return registeredPlayers = playerList.filter(player => dbNames.includes(player));
+	// console.log(playerList);
+
+	// console.log(db_result);
+	let db_arr = [];
+
+	for (let object in db_result) {
+		db_arr.push(db_result[object]['playerName']);
+	}
+
+	// console.log(db_arr);
+	let team1 = [];
+	let team2 = [];
+
+	// let dbNames = db_result.map(player => player.playerName);
+	for (let player in playerList['team1']) {
+		// console.log(Object.keys(playerList[team]));
+		if (db_arr.includes(player)) {
+			team1.push(player);
+		}
+	}
+
+	for (let player in playerList['team2']) {
+		// console.log(Object.keys(playerList[team]));
+		if (db_arr.includes(player)) {
+			team2.push(player);
+		}
+	}
+	// console.log(team1);
+	// console.log(team2);
+	let team_list = team1.concat(team2);
+	return team_list;
+
+}
 
 // run on localhost
 app.listen(3000);
