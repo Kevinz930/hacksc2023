@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='static/playername.css'>
+  <link rel='stylesheet' href='/playername.css'>
   <title>Angel Shot</title>
 </head>
 <body>
   <div>
     <h1>Enter your in-game name</h1>
-    <form>
+    <form action="/gamerTag" method="post">
       <input type='text' placeholder='Player Name' required>
       <button type='submit' value='PlayerName'>
     </form>
