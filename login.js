@@ -6,7 +6,7 @@ const path = require('path');
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
-	password : '3123',
+	password : 'HamamaSonder@359',
 	database : 'nodelogin',
   	port: '3306'
 });
@@ -59,21 +59,19 @@ app.post('/auth', function(request, response) {
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
-	// If the user is logged in
-	if (request.session.loggedin) {
-		// Output username
-		response.send('Welcome back, ' + request.session.username + '!');
-	} else {
-		// Not logged in
-		response.send('Please login to view this page!');
-	}
-	
+	// // If the user is logged in
+	// if (request.session.loggedin) {
+	// 	// Output username
+	// 	response.send('Welcome back, ' + request.session.username + '!');
+	// } else {
+	// 	// Not logged in
+	// 	response.send('Please login to view this page!');
+	// }
+	response.sendFile(path.join(__dirname + '/game_select.html'));
 
 
-	response.end();
+	// response.end();
 });
-
-
 
 
 console.log("Go to http://localhost:3000");
