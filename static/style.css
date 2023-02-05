@@ -2,8 +2,6 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
   font-size: 16px;
-  margin: 0;
-  padding: 0;
 }
 body {
   background-color: #435165;
@@ -57,51 +55,4 @@ body {
 .login form input[type="submit"]:hover {
 background-color: #2868c7;
   transition: background-color 0.2s;
-}
-
-
-body {
-  padding: 50px;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  border: none;
-  /* width: 300px; */
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-
-.logo {
-  height: 40%;
-  width: 80%;
-}
-
-button {
-  background-image: url('https://static.wikia.nocookie.net/leagueoflegends/images/d/d3/Summoners_Rift_Summoner_Platforms.jpg/revision/latest?cb=20140624075315');
-  background-position: center;
-  background-size: cover;
-  color: rgb(216, 216, 216);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-button:hover {
-  opacity: 75%;
 }

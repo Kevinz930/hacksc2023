@@ -3,26 +3,26 @@
   padding: 0;
 }
 
-body {
+.game-select {
   padding: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
+.game-select header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* grid-template-rows: repeat(auto-fit, 300px); */
-  /* grid-template-columns: 1fr 1fr 1fr; */
   gap: 20px;
 }
 
-.card {
+.game-select .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.game-select .card {
   border: none;
   /* width: 300px; */
   height: 300px;
@@ -32,12 +32,12 @@ header {
   border-radius: 15px;
 }
 
-.logo {
+.game-select .logo {
   height: 40%;
   width: 80%;
 }
 
-button {
+.game-select button {
   background-image: url('https://static.wikia.nocookie.net/leagueoflegends/images/d/d3/Summoners_Rift_Summoner_Platforms.jpg/revision/latest?cb=20140624075315');
   background-position: center;
   background-size: cover;
@@ -47,6 +47,6 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+.game-select button:hover {
   opacity: 75%;
 }
