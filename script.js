@@ -1,8 +1,11 @@
 import axios from 'axios'
 import * as https from "https";
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
-// const API_KEY = 'RGAPI-2f646f6b-5115-41e9-a96d-880fe7eaccb2';
+// const API_ KEY = 'RGAPI-2f646f6b-5115-41e9-a96d-880fe7eaccb2';
 
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
@@ -37,7 +40,7 @@ function getPlayers(data) {
   return players;
 }
 
-
+foq 
 
 let playerList = await getCurrentMatch();
 console.log(playerList);

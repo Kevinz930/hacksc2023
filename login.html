@@ -5,24 +5,22 @@
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>Angel Shot</title>
 		<!-- the form awesome library is used to add icons to our form -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <!-- include the stylesheet file -->
-        <link href="/style.css" rel="stylesheet" type="text/css">
+		<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"> -->
+		<!-- include the stylesheet file -->
+		<!-- <link href="/style.css" rel="stylesheet" type="text/css"> -->
+		<link rel='stylesheet' href='static/login.css'>
 	</head>
 	<body>
 		<div class="login">
-			<h1>Welcome to Angel Shot</h1>
+			<h1>Angel Shot Network</h1>
 			<form action="/auth" method="post">
-				<label for="username">
-					<!-- font awesome icon -->
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
-				<input type="submit" value="Login">
+				<div class='textbox'>
+					<label for="username"></label>
+					<input type="text" name="username" placeholder="Username" id="username" required>
+					<label for="password"></label>
+					<input type="password" name="password" placeholder="Password" id="password" required>
+				</div>
+				<button type="submit" value="Login" class='submit'>
 			</form>
 		</div>
 	</body>

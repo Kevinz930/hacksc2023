@@ -1,14 +1,53 @@
+@font-face {
+  font-family: Panton;
+  src: url('Panton/PantonDemo-Light.otf') format('opentype');
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: Panton;
+
 }
 
-.game-select {
-  padding: 50px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+h1, h2 {
+  color: rgb(255, 255, 255);
+  opacity: 70%;
+  letter-spacing: 10px;
+
 }
 
-.game-select header {
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+
+body {
+  box-sizing: border-box;
+  padding: 100px;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));
+  height: 100vh;
+  position: relative;
+}
+
+body:after {
+  content: "";
+  background: url('zoom.png');
+  background-size: cover;
+  opacity: .3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,38 +55,71 @@
   gap: 20px;
 }
 
-.game-select .grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.game-select .card {
+.card {
   border: none;
-  /* width: 300px; */
-  height: 300px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
 }
 
-.game-select .logo {
+.logo {
   height: 40%;
   width: 80%;
 }
 
-.game-select button {
-  /* background-image: url('img\background\league_of_legends.webp'); */
-  background: url('/league_of_legends.webp');
+button {
   background-position: center;
   background-size: cover;
-  color: rgb(216, 216, 216);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  cursor: pointer;
+  transition: opacity, transform .15s ease-in-out;
+  opacity: 80%;
 }
 
-.game-select button:hover {
-  opacity: 75%;
+button:hover {
+  opacity: 60%;
+  transform: scale(1.05);
+}
+
+.card.league-of-legends {
+  background-image: url('league_of_legends.png');
+}
+
+.card.valorant {
+  background-image: url('valorant.png');
+}
+
+.card.destiny2 {
+  background-image: url('destiny2.png');
+}
+
+.card.overwatch2 {
+  background-image: url('overwatch2.png');
+}
+
+.card.minecraft {
+  background-image: url('minecraft.png');
+}
+
+.card.fortnite {
+  background-image: url('fortnite.png');
+}
+
+.card.apex_legends {
+  background-image: url('apex_legends.png');
+}
+
+.card.roblox {
+  background-image: url('roblox.png');
+}
+
+.card.teamfight_tactics{
+  background-image: url('teamfight_tactics.png');
 }

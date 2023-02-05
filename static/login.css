@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Panton;
+  src: url('Panton/PantonDemo-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Rocket;
+  src: url('Rocket-Wildness/Rocketwildness.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Panton;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  opacity: 70%;
+  letter-spacing: 10px;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 100px;
+  width: 80vw;
+  font-family: Rocket;
+  transform: scale(1, 1.15);
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(89, 0, 255));
+  padding: 75px 300px 75px 300px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body:after {
+  content: "";
+  background: url('zoom.png');
+  background-size: cover;
+  opacity: .5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+body .login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 75px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  padding-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  height: 300px;
+}
+
+.textbox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+  width: max(200px, 25vw);
+  height: 15px;
+  border-radius: 10px;
+  text-align: center;
+  letter-spacing: 5px;
+  outline: none;
+  border: 3px solid rgb(76, 76, 76);
+  background-color: rgb(28, 28, 28);
+  color: rgb(196, 196, 196);
+}
+
+input:focus {
+  border: 3px solid rgb(64, 0, 255);
+}
+
+button {
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-image: url('arrow_right.png');
+  cursor: pointer;
+  transition: opacity, transform .15s ease-in-out;
+  opacity: 90%;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  opacity: 40%;
+  background-color: rgb(0, 0, 0);
+  border: 8px solid rgba(255, 255, 255, .8)
+}
+
+button:hover {
+  opacity: 60%;
+  transform: scale(1.1);
+}
