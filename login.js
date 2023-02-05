@@ -182,7 +182,7 @@ app.get('/GameName', async function(request, response) {
 		color: rgb(255, 255, 255);
 		opacity: 70%;
 		letter-spacing: 10px;
-		font-size: 40px;
+		font-size: 54px;
 		text-align: center;
 	}
 	ul {
