@@ -158,7 +158,7 @@ app.get('/GameName', async function(request, response) {
 		box-sizing: border-box;
 		padding: 100px 300px 100px 300px;
 		position: relative;
-	} 
+	}
 	body:after {
 		content: "";
 		background: url('zoom.png');
@@ -175,7 +175,7 @@ app.get('/GameName', async function(request, response) {
 		background-color: rgba(0, 0, 0, 0.4);
 		border-radius: 25px;
 		height: 100%;
-		padding: 75px;
+		padding: 50px;
 		box-sizing: border-box;
 	}
 	h1 {
@@ -196,6 +196,8 @@ app.get('/GameName', async function(request, response) {
 	li {
 		color: rgb(255, 255, 255);
 		font-size: 28px;
+		color: rgb(255, 255, 255);
+		opacity: 70%;
 	}
 	</style>`;
 	playerString = "<html>" + style + "<body><div><ul>" + playerString + "</ul></div></body></html>";
