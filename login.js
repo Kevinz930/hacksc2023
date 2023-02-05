@@ -138,7 +138,7 @@ app.post('/gamerTag', function(request, response) {
 app.get('/GameName', async function(request, response) {
 	const result = await queryDatabase();
 	const message = compareDB(result);
-	let playerString = '<h1>Angel Shot Members in Your Match:</h1>';
+	let playerString = '<h1>Members in Your Match</h1>';
 	for (let player in message) {
 		playerString = playerString.concat("<li>" + message[player] + "</li>");
 		console.log(message[player]);
@@ -182,18 +182,20 @@ app.get('/GameName', async function(request, response) {
 		color: rgb(255, 255, 255);
 		opacity: 70%;
 		letter-spacing: 10px;
-		font-size: 60px;
+		font-size: 40px;
 		text-align: center;
 	}
-	p {
-		font-size:40px;
-	} 
 	ul {
 		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
 	}
 	li {
 		color: rgb(255, 255, 255);
-		font-size: 20px;
+		font-size: 28px;
 	}
 	</style>`;
 	playerString = "<html>" + style + "<body><div><ul>" + playerString + "</ul></div></body></html>";
