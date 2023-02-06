@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/26636478/216863041-7986b404-4d87-4690-81da-f547645adf51.mp4
+
 ### Developed by Kevin Zheng, Mayur Ryali, and Jan-Paul Schwarz
 
 ## Inspiration
