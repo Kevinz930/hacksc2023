@@ -1,4 +1,4 @@
-###Developed by Kevin Zheng, Mayur Ryali, and Jan-Paul Schwarz
+### Developed by Kevin Zheng, Mayur Ryali, and Jan-Paul Schwarz
 
 ##Inspiration
 “What are you doing here? – Go back into the kitchen! “ “Give me your Snapchat, you dirty fat slut?” “Can you send me nudes?”
