@@ -21,7 +21,7 @@ This authentication system requires a username and password to log into a web ap
 
 ## Challenges we ran into
 Verification process  
-Connecting SQL to a .js file
+Connecting SQL to a .js file  
 Transferring data between frontend and backend using GET and POST HTTP requests  
 Working with the Riot Games API  
 
