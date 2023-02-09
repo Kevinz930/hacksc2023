@@ -13,8 +13,8 @@ In order to Sign up for this community, each member has to go through the verifi
 ## Why the name Angel Shot?
 After the #MeToo movement, ordering an Angel Shot at a bar is a code that patrons can use to let the staff know that you are in an uncomfortable situation and need help. We are now translating this code into the online gaming community and creating a secure place that helps women connect to each other without exposing their identity to strangers.
 
-## Why are 3 dudes creating a project for female gamers?
-We were motivated to create Angel Shot as a result of witnessing women being subjected to sexual harassment and negative stereotypes while gaming. We all know female gamers who love to play video games but are very cautious about communicating with other players out of fear of being treated differently for their gender.
+## Why are 3 dudes building a platform for female gamers?
+We were motivated to create Angel Shot as a result of witnessing women being subjected to sexual harassment and negative stereotypes. We all know female gamers who love to play video games but are very cautious about communicating with other players out of fear of being treated differently for their gender. We love games, and hope to create an an environment that gives everyone the opportunity to enjoy them regardless of differences such as gender. 
 
 ## How we built it
 This authentication system requires a username and password to log into a web application. Credentials are verified against a database, and if successful, the user is redirected to the "/home" endpoint. An error message is displayed if the credentials do not match. The frontend and backend communicate over the internet or a local network using protocols like HTTP/HTTPS and exchange data in formats like JSON/XML. Frontend libraries/frameworks like Axios/jQuery/Fetch and backend frameworks like Flask/Django/Express handle the communication, managed by tools like GraphQL/RESTful API design. This communication is essential for data exchange in web applications.
@@ -25,14 +25,12 @@ Connecting SQL to a .js file
 Transferring data between frontend and backend using GET and POST HTTP requests  
 Working with the Riot Games API  
 
-## Accomplishments that we're proud of  
+## Accomplishments that we're proud of
 Very positive feedback from female players, especially regarding indirect communication
 Seamless integration between frontend and backend
 Contributing towards solving a problem we are all passionate about
 
-## What we learned
-
-Refreshed how we used RESTFUL API and NodeJS
-
 ## What's next for Angel Shot
-Next, we have to figure out how to bring privacy issues and gender verification together and implement our community feature into as many games as possible
+Finding a compromise between privacy concerns and identy verification  
+Implementing text communication, private channels, and other community features  
+Adding support for more games
