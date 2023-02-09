@@ -22,17 +22,17 @@ We were motivated to create Angel Shot as a result of witnessing females being s
 This authentication system requires a username and password to log into a web application. Credentials are verified against a database, and if successful, the user is redirected to the "/home" endpoint. An error message is displayed if the credentials do not match. The frontend and backend communicate over the internet or a local network using protocols like HTTP/HTTPS and exchange data in formats like JSON/XML. Frontend libraries/frameworks like Axios/jQuery/Fetch and backend frameworks like Flask/Django/Express handle the communication, managed by tools like GraphQL/RESTful API design. This communication is essential for data exchange in web applications.
 
 ## Challenges we ran into
-Verification process
-Connecting sequels to a .js file
-Connect HTML to CS formatting
-Distinguish between get and post HTTP requests
-Working with the original game API from Riot Games
-Accomplishments that we're proud of
-Very positive feedback from our female gamer friends, especially for the indirect communication
-Fixing the issues with the different languages to bring them into one working program
+Verification process  
+Connecting sequels to a .js file  
+Connect HTML to CS formatting  
+Distinguish between get and post HTTP requests  
+Working with the original game API from Riot Games  
+Accomplishments that we're proud of  
+Very positive feedback from our female gamer friends, especially for the indirect communication  
+Fixing the issues with the different languages to bring them into one working program  
 
 ## What we learned
-Still learning
+Still learning  
 Refreshed how we used RESTFUL API and NodeJS
 
 ## What's next for Angel Shot
