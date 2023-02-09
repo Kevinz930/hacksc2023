@@ -26,9 +26,9 @@ Transferring data between frontend and backend using GET and POST HTTP requests
 Working with the Riot Games API  
 
 ## Accomplishments that we're proud of
-Very positive feedback from female players, especially regarding indirect communication
-Seamless integration between frontend and backend
-Contributing towards solving a problem we are all passionate about
+Very positive feedback from female players, especially regarding indirect communication  
+Seamless integration between frontend and backend  
+Contributing towards solving a problem we are all passionate about  
 
 ## What's next for Angel Shot
 Finding a compromise between privacy concerns and identy verification  
